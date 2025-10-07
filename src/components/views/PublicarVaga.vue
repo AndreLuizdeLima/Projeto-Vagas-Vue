@@ -1,12 +1,12 @@
 <template>
     <div>
-        <p>Topo</p>
+        <p>publicar vaga</p>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'TopoLayout'
+    name: 'PublicarVaga'
 }
 </script>
 
