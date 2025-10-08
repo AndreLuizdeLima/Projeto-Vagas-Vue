@@ -1,7 +1,8 @@
 <template>
   <div>
     <topo-padrao />
-    <conteudo />
+    <button @click="desmontar()">Desmontar componente conteudo</button>
+    <conteudo v-if="visibilidade" />
   </div>
 </template>
 
@@ -14,6 +15,14 @@ export default {
   components: {
     Conteudo,
     TopoPadrao: TopoPadrao
+  },
+  data: () => ({
+    visibilidade: true
+  }),
+  methods: {
+    desmontar(){
+      this.visibilidade = false
+    }
   }
 }
 </script>
