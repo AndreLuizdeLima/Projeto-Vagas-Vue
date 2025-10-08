@@ -1,9 +1,17 @@
 <template>
     <div>
         <p>{{titulo}}</p>
-        <button @click="atualizarComponente()">Atualizar</button>
+        <button @click="atualizarComponente()">Atualizar</button><br>
+        <button @click="conteudo = 'home-page'">home</button>
+        <button @click="conteudo = 'publicar-vaga'">publicar vaga</button>
+        
+        <component :is="conteudo" />
+        
+        <!-- Renderizar de modo dinamico os componentes home e publicar vaga-->
+        <!--
         <home-page />
         <publicar-vaga />
+        -->
     </div>
 </template>
 
@@ -17,7 +25,8 @@ export default {
     name: 'ConteudoLayout',
     data: () => ({
         teste2: 'O componente foi criado',
-        titulo: 'Componente conteudo'
+        titulo: 'Componente conteudo',
+        conteudo: 'home-page'
     }),
     components: {
         HomePage,
