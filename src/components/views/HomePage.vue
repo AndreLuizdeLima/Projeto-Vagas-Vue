@@ -6,7 +6,19 @@
 
 <script>
 export default {
-    name: 'HomePage'
+    name: 'HomePage',
+    activated() {
+        console.log('Componente ativado')
+    },
+    deactivated() {
+        console.log('componente desativado')
+    },
+        beforeUnmount() {
+        console.log('Antes de desmontar')
+    },
+    unmounted() {
+        console.log('desmontado e destruido')
+    }
 }
 </script>
 

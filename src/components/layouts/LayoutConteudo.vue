@@ -5,8 +5,9 @@
         <button @click="conteudo = 'home-page'">home</button>
         <button @click="conteudo = 'publicar-vaga'">publicar vaga</button>
         
+        <keep-alive>
         <component :is="conteudo" />
-        
+        </keep-alive>
         <!-- Renderizar de modo dinamico os componentes home e publicar vaga-->
         <!--
         <home-page />
@@ -36,16 +37,16 @@ export default {
         atualizarComponente() {
             this.titulo += '*'
         }
-    },
+    },/*
     beforeCreate(){
-        /* validar autenticação */
+        /* validar autenticação 
         console.log('Antes de criar', this.teste2)
     },
     created() {
         console.log('Criado ', this.teste2)
     },
     beforeMount() {
-        /* carregar os dados de uma api */
+        /* carregar os dados de uma api 
         console.log('antes de montar')
     },
     mounted() {
@@ -62,8 +63,14 @@ export default {
     },
     unmounted() {
         console.log('desmontado e destruido')
-    },
+    },*/
     /* 
+    activated() {
+        console.log('Componente ativado')
+    },
+    deactivated() {
+        console.log('componente desativado')
+    }
     errorCaptured() {
         console.log('captura de um erro')
     }, 
@@ -73,12 +80,7 @@ export default {
     renderTriggered() {
         console.log('Re-renderização ativada')
     },
-    activated() {
-        console.log('Componente ativado')
-    },
-    deactivated() {
-        console.log('componente desativado')
-    }
+    
     */
 }
 </script>
