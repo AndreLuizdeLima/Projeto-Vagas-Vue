@@ -12,12 +12,23 @@
 <script>
 export default {
     name: 'VagasPublicadas',
-    props: ['titulo',
+    /*props: ['titulo',
         'descricao',
         'salario',
         'modalidade',
         'tipo',
-        'publicacao']
+        'publicacao'],*/
+    props: {
+        titulo: String,
+        descricao: String,
+        salario: [Number, String],
+        modalidade: String,
+        tipo: String,
+        publicacao: String
+    },
+    created() {
+        console.log(typeof this.titulo)
+    }
 } 
 </script>
 <style></style>

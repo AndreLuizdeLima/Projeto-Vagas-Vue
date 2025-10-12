@@ -55,7 +55,8 @@ export default {
                 modalidade: 'Home Office',
                 tipo: 'PJ',
                 publicacao: '2021-10-10'
-            },
+            }/*
+            ,
             {
                 titulo: 'Programador JavaScript Angular',
                 descricao: 'Profissional com conhecimentos avançados em JavaScript e Angular.',
@@ -87,7 +88,7 @@ export default {
                 modalidade: 'Presencial',
                 tipo: 'CLT',
                 publicacao: '2021-10-05'
-            }
+            }*/
         ]
     }),
     methods: {
