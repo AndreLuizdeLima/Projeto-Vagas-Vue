@@ -1,7 +1,10 @@
 <template>
   <div>
     <topo-padrao />
-    <button @click="desmontar()">Desmontar componente conteudo</button>
+    <!--
+      <button @click="desmontar()">Desmontar componente conteudo</button>
+    -->
+    
     <conteudo v-if="visibilidade" />
   </div>
 </template>
