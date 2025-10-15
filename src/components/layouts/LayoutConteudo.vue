@@ -2,10 +2,10 @@
     <div>
         <!--
         <p>{{titulo}}</p>
-        <button @click="atualizarComponente()">Atualizar</button><br>
+        <button @click="atualizarComponente()">Atualizar</button><br>-->
         <button @click="conteudo = 'home-page'">home</button>
         <button @click="conteudo = 'publicar-vaga'">publicar vaga</button>
-        -->
+        
         <keep-alive>
         <component :is="conteudo" />
         </keep-alive>

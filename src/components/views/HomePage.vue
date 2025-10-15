@@ -8,14 +8,7 @@
 
         <div class="row mt-5" v-for="(vaga, index) in vagas" :key="index">
             <div class="col">
-                <vagas-publicadas
-                    :titulo="vaga.titulo"
-                    :descricao="vaga.descricao"
-                    :salario="vaga.salario"
-                    :modalidade="vaga.modalidade"
-                    :tipo="vaga.tipo"
-                    :publicacao="vaga.publicacao"
-                 />
+                <vagas-publicadas v-bind="vaga" />
             </div>
         </div>
 
@@ -55,8 +48,7 @@ export default {
                 modalidade: 'Home Office',
                 tipo: 'PJ',
                 publicacao: '2021-10-10'
-            }/*
-            ,
+            },
             {
                 titulo: 'Programador JavaScript Angular',
                 descricao: 'Profissional com conhecimentos avançados em JavaScript e Angular.',
@@ -88,7 +80,7 @@ export default {
                 modalidade: 'Presencial',
                 tipo: 'CLT',
                 publicacao: '2021-10-05'
-            }*/
+            }
         ]
     }),
     methods: {

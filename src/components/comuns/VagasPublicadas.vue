@@ -19,15 +19,28 @@ export default {
         'tipo',
         'publicacao'],*/
     props: {
-        titulo: String,
-        descricao: String,
-        salario: [Number, String],
+        titulo: {
+            type: String,
+            required: true,
+        },
+        descricao: {
+            type: String,
+            //default: 'Descrição ñão informado'
+            default() {
+                return '*'.repeat(20)
+            }
+        },
+        salario: {
+            type: [Number, String],
+            required: true,
+            validator(p) {
+                if(p < 0) return false
+                return true
+            }
+        },
         modalidade: String,
         tipo: String,
         publicacao: String
-    },
-    created() {
-        console.log(typeof this.titulo)
     }
 } 
 </script>
