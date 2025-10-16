@@ -1,19 +1,8 @@
 <template>
-    <div>
-        <!--
-        <p>{{titulo}}</p>
-        <button @click="atualizarComponente()">Atualizar</button><br>-->
-        <button @click="conteudo = 'home-page'">home</button>
-        <button @click="conteudo = 'publicar-vaga'">publicar vaga</button>
-        
+    <div> 
         <keep-alive>
         <component :is="conteudo" />
         </keep-alive>
-        <!-- Renderizar de modo dinamico os componentes home e publicar vaga-->
-        <!--
-        <home-page />
-        <publicar-vaga />
-        -->
     </div>
 </template>
 
@@ -25,10 +14,15 @@ import PublicarVaga from '@/components/views/PublicarVaga.vue';
 
 export default {
     name: 'ConteudoLayout',
+    props: {
+        conteudo: {
+            type: String,
+            required: true
+        }
+    },
     data: () => ({
         teste2: 'O componente foi criado',
-        titulo: 'Componente conteudo',
-        conteudo: 'home-page'
+        titulo: 'Componente conteudo'
     }),
     components: {
         HomePage,
@@ -38,51 +32,7 @@ export default {
         atualizarComponente() {
             this.titulo += '*'
         }
-    },/*
-    beforeCreate(){
-        /* validar autenticação 
-        console.log('Antes de criar', this.teste2)
-    },
-    created() {
-        console.log('Criado ', this.teste2)
-    },
-    beforeMount() {
-        /* carregar os dados de uma api 
-        console.log('antes de montar')
-    },
-    mounted() {
-        console.log('Montado template foi para o dom')
-    },
-    beforeUpdate() {
-        console.log('Antes de atualizar')
-    },
-    updated() {
-        console.log('Atualizado')
-    },
-    beforeUnmount() {
-        console.log('Antes de desmontar')
-    },
-    unmounted() {
-        console.log('desmontado e destruido')
-    },*/
-    /* 
-    activated() {
-        console.log('Componente ativado')
-    },
-    deactivated() {
-        console.log('componente desativado')
     }
-    errorCaptured() {
-        console.log('captura de um erro')
-    }, 
-    renderTracked() {
-        console.log('Re-renderização rastreada')
-    },
-    renderTriggered() {
-        console.log('Re-renderização ativada')
-    },
-    
-    */
 }
 </script>
 

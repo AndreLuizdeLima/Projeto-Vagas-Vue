@@ -1,11 +1,7 @@
 <template>
   <div>
-    <topo-padrao />
-    <!--
-      <button @click="desmontar()">Desmontar componente conteudo</button>
-    -->
-    
-    <conteudo v-if="visibilidade" />
+    <topo-padrao @alterarTemplate="componente = $event" />    
+    <conteudo :conteudo="componente" />
   </div>
 </template>
 
@@ -20,12 +16,9 @@ export default {
     TopoPadrao: TopoPadrao
   },
   data: () => ({
-    visibilidade: true
+    componente: 'HomePage'
   }),
   methods: {
-    desmontar(){
-      this.visibilidade = false
-    }
   }
 }
 </script>
