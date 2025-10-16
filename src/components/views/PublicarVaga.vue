@@ -71,7 +71,7 @@ export default {
     }),
     methods: {
         salvarVaga() {
-            let vagas = JSON.parse(localStorage.getItem('vagas'))   
+            let vagas = JSON.parse(localStorage.getItem('vagas'))
 
             if (!vagas) vagas = []
 

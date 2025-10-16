@@ -5,7 +5,7 @@
             <p>{{descricao}}</p>
         </div>
         <div class="card-footer">
-            <small class="text-muted">Salario: R$ {{salario}} | Modalidade: {{modalidade}} | Tipo: {{tipo}} | Publicação {{publicacao}}</small>
+            <small class="text-muted">Salario: R$ {{salario}} | Modalidade: {{getModalidade}} | Tipo: {{getTipo}} | Publicação {{publicacao}}</small>
         </div>
     </div>
 </template>
@@ -41,6 +41,22 @@ export default {
         modalidade: String,
         tipo: String,
         publicacao: String
+    },
+    computed: {
+        getModalidade() {
+            switch(this.modalidade) {
+                case '1': return 'Home Office'
+                case '2': return 'Presencial'
+            }
+            return ''
+        },
+        getTipo() {
+            switch(this.tipo) {
+                case '1': return 'CLT'
+                case '2': return 'PJ'
+            }
+            return ''
+        }
     }
 } 
 </script>
