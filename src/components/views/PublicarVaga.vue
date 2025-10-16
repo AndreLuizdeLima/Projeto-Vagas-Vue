@@ -75,6 +75,9 @@ export default {
 
             if (!vagas) vagas = []
 
+            let dataAtual = new Date(Date.now())
+            let dataIso = dataAtual.toISOString()
+
             vagas.push(
                 {
                     titulo: this.titulo,
@@ -82,6 +85,7 @@ export default {
                     salario: this.salario,
                     modalidade: this.modalidade,
                     tipo: this.tipo,
+                    publicacao: dataIso
                 }
             )
 

@@ -5,7 +5,7 @@
             <p>{{descricao}}</p>
         </div>
         <div class="card-footer">
-            <small class="text-muted">Salario: R$ {{salario}} | Modalidade: {{getModalidade}} | Tipo: {{getTipo}} | Publicação {{publicacao}}</small>
+            <small class="text-muted">Salario: R$ {{salario}} | Modalidade: {{getModalidade}} | Tipo: {{getTipo}} | Publicação {{getPublicacao}}</small>
         </div>
     </div>
 </template>
@@ -56,6 +56,10 @@ export default {
                 case '2': return 'PJ'
             }
             return ''
+        },
+        getPublicacao() {
+            let dataPubli = new Date(this.publicacao)
+            return dataPubli.toLocaleDateString('pt-BR')
         }
     }
 } 
