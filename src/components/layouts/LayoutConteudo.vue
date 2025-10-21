@@ -21,17 +21,12 @@ export default {
         }
     },
     data: () => ({
-        teste2: 'O componente foi criado',
-        titulo: 'Componente conteudo'
     }),
     components: {
         HomePage,
         PublicarVaga
     },
     methods: {
-        atualizarComponente() {
-            this.titulo += '*'
-        }
     }
 }
 </script>

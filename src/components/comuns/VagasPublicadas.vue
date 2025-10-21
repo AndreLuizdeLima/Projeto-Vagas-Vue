@@ -1,11 +1,28 @@
 <template lang="">
     <div class="card">
-        <div class="card-header bg-dark text-white">{{titulo}}</div>
+        <div class="card-header bg-dark text-white">
+            <div class="row">
+                <div class="col d-flex justify-content-between">
+                    <div>
+                        {{titulo}}
+                    </div>
+                    <div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" v-model="favoritada">
+                        <label class="form-check-label">Favoritar</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
         <div class="card-body">
             <p>{{descricao}}</p>
         </div>
         <div class="card-footer">
-            <small class="text-muted">Salario: R$ {{salario}} | Modalidade: {{getModalidade}} | Tipo: {{getTipo}} | Publicação {{getPublicacao}}</small>
+            <small class="text-muted">Salario: R$ {{salario}} | Modalidade: {{getModalidade}} | Tipo: {{getTipo}} |
+                Publicação {{getPublicacao}}</small>
         </div>
     </div>
 </template>
@@ -18,6 +35,9 @@ export default {
         'modalidade',
         'tipo',
         'publicacao'],*/
+    data: () => ({
+        favoritada: false
+    }),
     props: {
         titulo: {
             type: String,
@@ -34,7 +54,7 @@ export default {
             type: [Number, String],
             required: true,
             validator(p) {
-                if(p < 0) return false
+                if (p < 0) return false
                 return true
             }
         },
@@ -44,14 +64,14 @@ export default {
     },
     computed: {
         getModalidade() {
-            switch(this.modalidade) {
+            switch (this.modalidade) {
                 case '1': return 'Home Office'
                 case '2': return 'Presencial'
             }
             return ''
         },
         getTipo() {
-            switch(this.tipo) {
+            switch (this.tipo) {
                 case '1': return 'CLT'
                 case '2': return 'PJ'
             }
@@ -60,6 +80,20 @@ export default {
         getPublicacao() {
             let dataPubli = new Date(this.publicacao)
             return dataPubli.toLocaleDateString('pt-BR')
+        }
+    },
+    methods: {
+        dispararEvento() {
+            this.emitter.emit('eventoGlobal1', 'teste captura evento')
+        }
+    },
+    watch: {
+        favoritada(valorNovo) {
+            if (valorNovo) {
+                this.emitter.emit('favoritarVaga', this.titulo)
+            } else {
+                this.emitter.emit('desfavoritarVaga', this.titulo)
+            }
         }
     }
 } 
