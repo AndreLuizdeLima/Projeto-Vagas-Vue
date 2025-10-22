@@ -89,8 +89,11 @@ export default {
                 }
             )
 
-            //localStorage.setItem('vagas', JSON.stringify(vagas))
-            this.emitter.emit('alerta')
+            localStorage.setItem('vagas', JSON.stringify(vagas))
+            this.emitter.emit('alerta', {
+                titulo: `A vaga ${this.titulo} foi cadastrada com sucesso`,
+                descricao: 'Parabens a vaga agora está disponivel na plataforma'
+            })
             this.resetaFormulario()
         },
         resetaFormulario() {

@@ -6,11 +6,11 @@
 
     <alerta-pop-up v-if="exibirAlerta">
       <template v-slot:titulo>
-        <h5>Titulo alerta</h5>
+        <h5>{{alerta.titulo}}</h5>
       </template>
 
       <template v-slot:descricao>
-        <p>conteudo</p>
+        <p>{{alerta.descricao}}</p>
       </template>
     </alerta-pop-up>
     
@@ -34,12 +34,18 @@ export default {
   },
   data: () => ({
     componente: 'HomePage',
-    exibirAlerta: false
+    exibirAlerta: false,
+    alerta: {
+      titulo: '',
+      descricao: ''
+    }
   }),
   methods: {
   },
   mounted() {
-    this.emitter.on('alerta', () => {
+    this.emitter.on('alerta', (al) => {
+      this.alerta = al
+
       this.exibirAlerta = true
       setTimeout(() => this.exibirAlerta = false, 4000)
     })
