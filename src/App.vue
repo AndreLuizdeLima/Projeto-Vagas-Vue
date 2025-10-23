@@ -4,7 +4,7 @@
 
     <topo-padrao @alterarTemplate="componente = $event" />
 
-    <alerta-pop-up v-if="exibirAlerta">
+    <alerta-pop-up v-if="exibirAlerta" :tipo="alerta.tipo">
       <template v-slot:titulo>
         <h5>{{alerta.titulo}}</h5>
       </template>
@@ -37,7 +37,8 @@ export default {
     exibirAlerta: false,
     alerta: {
       titulo: '',
-      descricao: ''
+      descricao: '',
+      tipo: ''
     }
   }),
   methods: {
